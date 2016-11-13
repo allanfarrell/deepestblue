@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="diveSitesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DiveSite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Depth" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Buddy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Date" Type="date" />
+          <Property Name="AirStart" Type="int" />
+          <Property Name="AirEnd" Type="int" />
+          <Property Name="BottomTime" Type="int" />
+          <Property Name="DiveTime" Type="int" />
+          <Property Name="SiteInfo" Type="nvarchar(max)" />
+          <Property Name="Visibility" Type="int" />
+          <Property Name="WaterTemperature" Type="int" />
+        </EntityType>
+        <EntityContainer Name="diveSitesDBModelStoreContainer">
+          <EntitySet Name="DiveSite" EntityType="Self.DiveSite" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="diveSitesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DiveSite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Depth" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Buddy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Visibility" Type="Int32" />
+          <Property Name="AirStart" Type="Int32" />
+          <Property Name="AirEnd" Type="Int32" />
+          <Property Name="BottomTime" Type="Int32" />
+          <Property Name="DiveTime" Type="Int32" />
+          <Property Name="SiteInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WaterTemperature" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="diveSitesDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DiveSite" EntityType="Self.DiveSite" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="diveSitesDBModelStoreContainer" CdmEntityContainer="diveSitesDBEntities">
+          <EntitySetMapping Name="DiveSite">
+            <EntityTypeMapping TypeName="diveSitesDBModel.DiveSite">
+              <MappingFragment StoreEntitySet="DiveSite">
+                <ScalarProperty Name="WaterTemperature" ColumnName="WaterTemperature" />
+                <ScalarProperty Name="SiteInfo" ColumnName="SiteInfo" />
+                <ScalarProperty Name="DiveTime" ColumnName="DiveTime" />
+                <ScalarProperty Name="BottomTime" ColumnName="BottomTime" />
+                <ScalarProperty Name="AirEnd" ColumnName="AirEnd" />
+                <ScalarProperty Name="AirStart" ColumnName="AirStart" />
+                <ScalarProperty Name="Visibility" ColumnName="Visibility" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Buddy" ColumnName="Buddy" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

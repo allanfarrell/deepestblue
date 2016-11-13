@@ -1,0 +1,63 @@
+﻿@model diveSiteProject.Models.DiveSite
+
+@{ ViewBag.Title = "viewView"; }
+
+<style>h3{display:inline-block;}
+    h4 {display:inline-block;
+    }
+</style>
+
+<h3>@Html.DisplayFor(model => model.Location)</h3><h4>, @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.Country)</h4>
+<hr />
+<div>
+    <div class="containerLeft">
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Buddy)</dt>
+        <dd>@Html.DisplayFor(model => model.Buddy)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Date)</dt>
+        <dd>@Html.DisplayFor(model => model.Date)</dd>
+    </dl>
+        <dl class="dl-horizontal">
+            <dt>@Html.LabelFor(model => model.AirStart)</dt>
+            <dd>@Html.DisplayFor(model => model.AirStart)<span> psi</span></dd>
+
+            <dt>@Html.LabelFor(model => model.AirEnd)</dt>
+            <dd>@Html.DisplayFor(model => model.AirEnd)<span> psi</span></dd>
+            <br />
+            <dt>@Html.DisplayNameFor(model => model.Depth)</dt>
+            <dd>@Html.DisplayFor(model => model.Depth)<span> meters</span></dd>
+
+            <dt>@Html.LabelFor(model => model.BottomTime)</dt>
+            <dd>@Html.DisplayFor(model => model.BottomTime)<span> minutes</span></dd>
+
+            <dt>@Html.LabelFor(model => model.DiveTime)</dt>
+            <dd>@Html.DisplayFor(model => model.DiveTime)<span> minutes</span></dd>
+            <br />
+            <dt>@Html.LabelFor(model => model.Visibility)</dt>
+            <dd>@Html.DisplayFor(model => model.Visibility)<span> meters</span></dd>
+
+            <dt>@Html.LabelFor(model => model.WaterTemperature)</dt>
+            <dd>@Html.DisplayFor(model => model.WaterTemperature)<span> C</span></dd>
+        </dl>
+    </div>
+    <div class="containerLeft">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Description)</dt>
+            <dd>@Html.DisplayFor(model => model.Description)</dd>
+            <br />
+            <dt>@Html.LabelFor(model => model.SiteInfo)</dt>
+            <dd>@Html.DisplayFor(model => model.SiteInfo)</dd>
+        </dl>
+    </div>
+    <div class="containerRight">
+        <img src="@Url.Content(Model.Image)" alt="IMAGES" style="max-width:100%; border-radius: 15px;" /><br />
+        <span>@Html.DisplayNameFor(model => model.Image)<span> URL</span></span>
+        <span class="editSpacing">@Html.DisplayFor(model => model.Image)</span>
+        <br /><br />
+
+    </div>
+    </div>
+<div class="containerClear">
+    @Html.ActionLink("Back to List", "DiveSite", null, new { @class = "btn btn-default" })
+</div>

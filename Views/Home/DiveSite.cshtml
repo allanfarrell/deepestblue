@@ -1,0 +1,46 @@
+﻿@model IEnumerable<diveSiteProject.Models.DiveSite>
+<link href="~/Content/modal.css" rel="stylesheet" />
+@{ ViewBag.Title = "Index"; }
+
+<h3>Dive Site Log</h3>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Country)</th>
+        <th>@Html.DisplayNameFor(model => model.City)</th>
+        <th>@Html.DisplayNameFor(model => model.Location)</th>
+        <th>@Html.DisplayNameFor(model => model.Buddy)</th>
+        <th>@Html.DisplayNameFor(model => model.Date)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var site in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => site.Country)</td>
+            <td>@Html.DisplayFor(modelItem => site.City)</td>
+            <td>@Html.DisplayFor(modelItem => site.Location)</td>
+            <td>@Html.DisplayFor(modelItem => site.Buddy)</td>
+            <td>@Html.DisplayFor(modelItem => site.Date)</td>
+            <td>
+          <!--      <a class="deleteBtn in-table-link" href="#" onclick="ClickMe(site.Id)">delete</a> -->
+                @Html.ActionLink("delete", "delete", new { Id = site.Id }, new { @class = "in-table-link"})
+                @Html.ActionLink("edit", "edit", new { Id = site.Id }, new { @class = "in-table-link" })
+                @Html.ActionLink("view", "details", new { Id = site.Id }, new { @class = "in-table-link" })
+            </td>
+        </tr>
+    }
+        <!-- Delete Modal -->
+       <!-- <div id="deleteModal" class="modal">
+            <div class="modal-content">
+                <span class="close">x</span>
+                <h4>Are you sure you want to delete this record?</h4>
+                <a class="in-table-link" href="#" onclick="deleteRecordJS()">delete</a>|
+                <button id="cancelBtn" class="btn btn-default">cancel</button>
+            </div>
+        </div> -->
+</table>
+@Html.ActionLink("Add", "Add", null, new { @class = "btn btn-default" })
+
+
+<script src="~/scripts/modal.js"></script>

@@ -1,0 +1,91 @@
+﻿@model diveSiteProject.Models.DiveSite
+
+@{ ViewBag.Title = "Add"; }
+
+<h3>Enter DiveSite information</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "Failed Validation!", new { @class = "text-danger" })
+
+    <div class="containerLeft">
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.Country)</dt>
+            <dd class="editSpacing">@Html.EditorFor(model => model.Country)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.City)</dt>
+            <dd class="editSpacing">@Html.EditorFor(model => model.City)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Location)</dt>
+            <dd class="editSpacing">@Html.EditorFor(model => model.Location)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Buddy)</dt>
+            <dd class="editSpacing">@Html.EditorFor(model => model.Buddy)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Date)</dt>
+            <dd class="editSpacing">@Html.EditorFor(model => model.Date)</dd>
+        </dl>
+        <dl>
+            <dt>@Html.LabelFor(model => model.SiteInfo)</dt>
+            <dd class="editSpacing">@Html.TextAreaFor(model => model.SiteInfo)</dd>
+        </dl>
+    </div>
+    <div class="containerCenter">
+        <dl class="dl-horizontal">
+            <dt>@Html.LabelFor(model => model.AirStart)</dt>
+            <dd>@Html.EditorFor(model => model.AirStart)<span> psi</span></dd>
+
+            <dt>@Html.LabelFor(model => model.AirEnd)</dt>
+            <dd>@Html.EditorFor(model => model.AirEnd)<span> psi</span></dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Depth)</dt>
+            <dd>@Html.EditorFor(model => model.Depth)<span> meters</span></dd>
+
+            <dt>@Html.LabelFor(model => model.BottomTime)</dt>
+            <dd>@Html.EditorFor(model => model.BottomTime)<span> minutes</span></dd>
+
+            <dt>@Html.LabelFor(model => model.DiveTime)</dt>
+            <dd>@Html.EditorFor(model => model.DiveTime)<span> minutes</span></dd>
+
+            <dt>@Html.LabelFor(model => model.Visibility)</dt>
+            <dd>@Html.EditorFor(model => model.Visibility)<span> meters</span></dd>
+
+            <dt>@Html.LabelFor(model => model.WaterTemperature)</dt>
+            <dd>@Html.EditorFor(model => model.WaterTemperature)<span> C</span></dd>
+        </dl>
+    </div>
+
+    <div class="containerRight">
+        <dl>
+            <dt>@Html.DisplayNameFor(model => model.Image)</dt>
+            <dd class="editSpacing">@Html.TextAreaFor(model => model.Image)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Description)</dt>
+            <dd class="editSpacing">@Html.TextAreaFor(model => model.Description)</dd>
+        </dl>
+    </div>
+    <div class="containerClear">
+        <!--  Buttons -->
+        <div class="form-actions no-color">
+            <input type="submit" value="Save" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "DiveSite", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+    <dl>
+        <dd>@Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.Buddy, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.Depth, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.AirStart, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.AirEnd, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.BottomTime, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.DiveTime, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.Visibility, "", new { @class = "text-danger" })</dd>
+        <dd>@Html.ValidationMessageFor(model => model.WaterTemperature, "", new { @class = "text-danger" })</dd>
+        <dd class="desc-box">@Html.ValidationMessageFor(model => model.SiteInfo, "", new { @class = "text-danger" })</dd>
+        <dd class="desc-box">@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })</dd>
+        <dd class="url-box">@Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })</dd>
+    </dl>
+}
